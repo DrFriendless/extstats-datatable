@@ -1,17 +1,13 @@
 import {NgModule} from "@angular/core";
 import {AppComponent} from "./app.component";
 import {BrowserModule} from "@angular/platform-browser";
-import {DataTableModule} from "angular-6-datatable";
-import {HttpModule} from "@angular/http";
 import {DataFilterPipe} from "./data-filter.pipe";
 import {FormsModule} from "@angular/forms";
 
 @NgModule({
     imports: [
         BrowserModule,
-        DataTableModule,
-        FormsModule,
-        HttpModule
+        FormsModule
     ],
     declarations: [
         AppComponent,

@@ -1,12 +1,12 @@
 # Table component with sorting and pagination for Angular
-It is a forked version of [@cmglez10/ng-datatable](https://github.com/@cmglez10/ng-datatable) updated to Angular 6.
+It is a forked version of [@abdulk1/angular-6-datatable](https://github.com/abdulk1/angular-6-datatable) with additions for use in my ExtendedStatsServerless project.
 
 ## 
 
 ## Installation
 
 ```
-npm i angular-6-datatable --save
+npm i extstats-datatable --save
 ```
 
 ## Usage example
@@ -15,7 +15,7 @@ AppModule.ts
 ```typescript
 import {NgModule} from "@angular/core";
 ...
-import {DataTableModule} from "angular-6-datatable";
+import {DataTableModule} from "extstats-datatable";
 
 @NgModule({
     imports: [
