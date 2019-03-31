@@ -1,7 +1,7 @@
 {
   "name": "extstats-datatable",
-  "version": "0.8.0",
-  "description": "DataTable component for Angular framework",
+  "version": "0.9.0",
+  "description": "DataTable component for Angular framework, cloned from work by mariuszfoltak",
   "main": "index.js",
   "scripts": {
     "prebuild": "rimraf lib",
@@ -17,28 +17,24 @@
     "type": "git",
     "url": "git+https://github.com/DrFriendless/extstats-datatable.git"
   },
-  "keywords": [
-    "angular",
-    "angular6",
-    "ng",
-    "ng2",
-    "table",
-    "pagination",
-    "sort",
-    "sorting"
-  ],
   "author": "friendless.farrell@gmail.com",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/mariuszfoltak/angular2-datatable/issues"
+    "url": "https://github.com/DrFriendless/extstats-datatable/issues"
   },
-  "homepage": "https://github.com/mariuszfoltak/angular2-datatable#readme",
+  "homepage": "https://github.com/DrFriendless/extstats-datatable#readme",
+  "dependencies": {
+    "@angular/common": "~7.2.10",
+    "@angular/core": "~7.2.10",
+    "@angular/forms": "~7.2.10",
+    "@angular/platform-browser": "~7.2.10",
+    "@angular/platform-browser-dynamic": "~7.2.10",
+    "lodash": "^4.0.0"
+  },
   "devDependencies": {
-    "@angular/common": "^6.0.9",
-    "@angular/compiler": "^6.0.9",
-    "@angular/core": "^6.0.9",
-    "@angular/platform-browser": "^6.0.9",
-    "@angular/platform-browser-dynamic": "^6.0.9",
+    "@angular/cli": "~6.2.8",
+    "@angular/compiler-cli": "~7.2.10",
+    "@angular/compiler": "~7.2.10",
     "@types/jasmine": "^2.8.7",
     "@types/lodash": "4.14.108",
     "core-js": "^2.5.5",
@@ -52,23 +48,9 @@
     "phantomjs-prebuilt": "^2.1.7",
     "remap-istanbul": "^0.10.1",
     "rimraf": "^2.6.2",
-    "rxjs": "^6.2.2",
+    "rxjs": "~6.3.3",
     "systemjs": "^0.21.3",
-    "typescript": "2.7.x",
+    "typescript": "~3.1.6",
     "zone.js": "^0.8.26"
-  },
-  "dependencies": {
-    "@angular/cli": "^6.0.8",
-    "@angular/compiler-cli": "^6.0.9",
-    "@angular/forms": "^6.0.9",
-    "lodash": "^4.0.0"
-  },
-  "peerDependencies": {
-    "@angular/forms": "^6.0.9",
-    "@angular/http": "^6.0.9",
-    "@angular/core": "^6.0.9",
-    "@angular/common": "^6.0.9",
-    "@angular/platform-browser": "^6.0.9",
-    "rxjs": "^6.0.9"
   }
 }
