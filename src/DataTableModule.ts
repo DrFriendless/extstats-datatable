@@ -5,6 +5,7 @@ import {DataTable} from "./DataTable";
 import {DefaultSorter} from "./DefaultSorter";
 import {Paginator} from "./Paginator";
 import {BootstrapPaginator} from "./BootstrapPaginator";
+import {TableController} from "./TableController";
 
 @NgModule({
     imports: [
@@ -14,13 +15,15 @@ import {BootstrapPaginator} from "./BootstrapPaginator";
         DataTable,
         DefaultSorter,
         Paginator,
-        BootstrapPaginator
+        BootstrapPaginator,
+        TableController
     ],
     exports: [
         DataTable,
         DefaultSorter,
         Paginator,
-        BootstrapPaginator
+        BootstrapPaginator,
+        TableController
     ]
 })
 export class DataTableModule {
