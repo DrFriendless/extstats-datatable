@@ -66,6 +66,17 @@ AppComponent.html
 </table>
 ```
 
+```html
+  <div class="extstats-table-block">
+    <mfTableController [table]="favouritesTable" [searchColumn]="'gameName'" [placeholder]="'game'"></mfTableController>
+    <table class="table table-striped extstats-table" [mfData]="rows" #favouritesTable="mfDataTable" [mfRowsOnPage]="30"
+           [mfSortBy]="'fhm'" [mfSortOrder]="'desc'">
+      <thead mfHead [columns]="columns"></thead>
+      <tbody mfBody [columns]="columns"></tbody>
+    </table>
+  </div>
+```
+
 ## API
 
 ### `mfData` directive
@@ -88,9 +99,27 @@ AppComponent.html
  - inputs
    - `by: any` - specify how to sort data (argument for lodash function [_.sortBy ](https://lodash.com/docs#sortBy))
  
-### `mfBootstrapPaginator` component
-Displays buttons for changing current page and number of displayed rows using bootstrap template (css for bootstrap is required). If array length is smaller than current displayed rows on page then it doesn't show button for changing page. If array length is smaller than min value rowsOnPage then it doesn't show any buttons.
+### `mfTableController` component
+The mfTableController component replaces the paginator with a more constrained style.
+On the left is the page chooser, on the right is the page size chooser, and optionally in the centre is a search box.
+The search box is intended for really large tables where there's one obvious field to search on.
 
- - selector: `mfBootstrapPaginator`
- - inputs
-   - `rowsOnPageSet: number` - specify values for buttons to change number of diplayed rows
+### `Column<R>` class
+The Column class defines a column header and also the functions required to turn a row object of type R into data values.
+Columns are used to allow mfHead and mfBody to generate the head and body of the table.
+
+### `mfHead` component
+The mfHead component generates a standard table header from an array of columns.
+mfHead is not required - some other thead can be used, or it can be omitted entirely.
+```html
+<thead mfHead [columns]="columns"></thead>
+```
+
+### `mfBody` component 
+The mfBody component generates a standard table body from an array of columns and the mfData of the containing table.
+It simply iterates over the visible rows and applies the functions from the Column object to the row data to get
+values for the cells.
+mfBody is not required - some other tbody can be used, or it can be omitted entirely.
+```html
+<tbody mfBody [columns]="columns"></tbody>
+```

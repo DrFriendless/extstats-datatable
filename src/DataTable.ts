@@ -20,6 +20,22 @@ export interface DataEvent {
     length: number;
 }
 
+export class Column<R extends object> {
+    name: string;
+    field: string;
+    tooltip: string;
+    valueHtml(r: R): string { return r[this.field]; }
+    valueTooltip(r: R): string | undefined { return undefined; }
+
+    constructor(obj: object) {
+        if (obj["name"]) this.name = obj["name"];
+        if (obj["field"]) this.field = obj["field"];
+        if (obj["tooltip"]) this.tooltip = obj["tooltip"];
+        if (obj["valueHtml"]) this.valueHtml = obj["valueHtml"];
+        if (obj["valueTooltip"]) this.valueTooltip = obj["valueTooltip"];
+    }
+}
+
 @Directive({
     selector: 'table[mfData]',
     exportAs: 'mfDataTable'

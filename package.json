@@ -1,7 +1,7 @@
 {
   "name": "extstats-datatable",
-  "version": "0.10.3",
-  "description": "DataTable component for Angular framework, cloned from work by mariuszfoltak",
+  "version": "0.11.1",
+  "description": "DataTable component for Angular framework, cloned from work by mariuszfoltak.",
   "main": "index.js",
   "scripts": {
     "prebuild": "rimraf lib",
