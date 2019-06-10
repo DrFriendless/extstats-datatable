@@ -20,6 +20,14 @@ export interface DataEvent {
     length: number;
 }
 
+export interface ColumnParams<R> {
+    name: string
+    field: keyof R
+    tooltip?: string
+    valueHtml?: (r:R) => string
+    valueTooltip?: (r:R) => string
+}
+
 export class Column<R extends object> {
     name: string;
     field: keyof R;
@@ -27,8 +35,8 @@ export class Column<R extends object> {
     valueHtml(r: R): string { return r[this.field] ? r[this.field].toString() : ""; }
     valueTooltip(r: R): string | undefined { return undefined; }
 
-    constructor(obj: object) {
-        if (obj["name"]) this.name = obj["name"];
+    constructor(obj: ColumnParams<R>) {
+        this.name = obj["name"];
         if (obj["field"]) this.field = obj["field"];
         if (obj["tooltip"]) this.tooltip = obj["tooltip"];
         if (obj["valueHtml"]) this.valueHtml = obj["valueHtml"];
