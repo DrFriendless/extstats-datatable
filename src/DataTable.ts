@@ -22,9 +22,9 @@ export interface DataEvent {
 
 export class Column<R extends object> {
     name: string;
-    field: string;
+    field: keyof R;
     tooltip: string;
-    valueHtml(r: R): string { return r[this.field]; }
+    valueHtml(r: R): string { return r[this.field] ? r[this.field].toString() : ""; }
     valueTooltip(r: R): string | undefined { return undefined; }
 
     constructor(obj: object) {

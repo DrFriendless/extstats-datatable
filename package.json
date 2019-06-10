@@ -1,6 +1,6 @@
 {
   "name": "extstats-datatable",
-  "version": "0.11.1",
+  "version": "1.0.0",
   "description": "DataTable component for Angular framework, cloned from work by mariuszfoltak.",
   "main": "index.js",
   "scripts": {
