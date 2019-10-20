@@ -3,3 +3,4 @@ export {DefaultSorter} from './lib/src/DefaultSorter';
 export {Paginator} from './lib/src/Paginator';
 export {BootstrapPaginator} from './lib/src/BootstrapPaginator';
 export {DataTableModule} from './lib/src/DataTableModule';
+export {TableController} from './lib/src/TableController';
