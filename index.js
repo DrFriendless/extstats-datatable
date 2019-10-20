@@ -5,9 +5,6 @@ var bootstrapPaginator_component = require('./lib/src/BootstrapPaginator');
 var dataTable_module = require('./lib/src/DataTableModule');
 
 exports.DataTable = dataTable_directive.DataTable;
-exports.DataEvent = dataTable_directive.DataEvent;
-exports.PageEvent = dataTable_directive.PageEvent;
-exports.SortEvent = dataTable_directive.SortEvent;
 exports.DefaultSorter = defaultSorter_directive.DefaultSorter;
 exports.Paginator = paginator_component.Paginator;
 exports.BootstrapPaginator = bootstrapPaginator_component.BootstrapPaginator;

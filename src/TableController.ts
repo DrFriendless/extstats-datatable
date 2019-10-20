@@ -37,7 +37,7 @@ export class TableController {
   @Input('table') table: DataTable;
   @Input('searchColumn') searchColumn: string;
   @Input('placeholder') placeholder: string = 'search term';
-  @ViewChild(Paginator) paginator: Paginator;
+  @ViewChild(Paginator, {static: true}) paginator: Paginator;
 
   public searchValue = "";
   public rowsOnPageSet = [20, 30, 50];
