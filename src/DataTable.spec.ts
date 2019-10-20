@@ -174,30 +174,6 @@ describe("DataTable directive tests", ()=> {
             expect(datatable.sortOrder).toEqual("asc");
         });
 
-        it("should set sortOrder to 'asc' if provided something else than 'asc' or 'desc'", (done)=> {
-            datatable.onSortChange.subscribe((event: SortEvent)=> {
-                expect(event.sortBy).toEqual("id");
-                expect(event.sortOrder).toEqual("asc");
-                done();
-            });
-            datatable.ngDoCheck();
-            datatable.sortBy = "id";
-            datatable.sortOrder = "bulb";
-            datatable.ngOnChanges({
-                sortBy: new SimpleChange(null, datatable.sortBy, false),
-                sortOrder: new SimpleChange(null, datatable.sortOrder, false)
-            });
-            datatable.ngDoCheck();
-            expect(datatable.sortOrder).toEqual("asc");
-            expect(datatable.data).toEqual([
-                {id: 1, name: 'Duck'},
-                {id: 2, name: 'ącki'},
-                {id: 3, name: 'banana'},
-                {id: 4, name: 'Ananas'},
-                {id: 5, name: 'Ðrone'}
-            ]);
-        });
-
         it("shouldn't change order when only order provided", (done)=> {
             done();
             datatable.onSortChange.subscribe(()=> {
@@ -223,16 +199,6 @@ describe("DataTable directive tests", ()=> {
             datatable.setSort("id", "desc");
         });
 
-        it("shouldn't call output event when sortOrder fixed", (done)=> {
-            datatable.ngDoCheck();
-            datatable.sortOrderChange.subscribe(()=> {
-                done.fail("Shouldn't call sortOrderChange");
-            });
-            done();
-            datatable.sortOrder = "bulb";
-            datatable.ngOnChanges({sortOrder: new SimpleChange(null, datatable.sortOrder, false)});
-            datatable.ngDoCheck();
-        });
         // Wywołanie outputa gdy zmiana z innej strony
 
         it("shouldn't refresh data when set page with same settings", ()=> {

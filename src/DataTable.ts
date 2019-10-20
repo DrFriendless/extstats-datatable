@@ -16,9 +16,7 @@ export interface PageEvent {
     dataLength: number;
 }
 
-export interface DataEvent {
-    length: number;
-}
+type SortOrder = "asc"|"desc";
 
 @Directive({
     selector: 'table[mfData]',
@@ -30,7 +28,7 @@ export class DataTable implements OnChanges, DoCheck {
     @Input("mfData") public inputData: any[] = [];
 
     @Input("mfSortBy") public sortBy: string|string[] = "";
-    @Input("mfSortOrder") public sortOrder = "asc";
+    @Input("mfSortOrder") public sortOrder: SortOrder = "asc";
     @Output("mfSortByChange") public sortByChange = new EventEmitter<string|string[]>();
     @Output("mfSortOrderChange") public sortOrderChange = new EventEmitter<string>();
 
@@ -52,7 +50,7 @@ export class DataTable implements OnChanges, DoCheck {
         return {sortBy: this.sortBy, sortOrder: this.sortOrder};
     }
 
-    public setSort(sortBy: string|string[], sortOrder: string): void {
+    public setSort(sortBy: string|string[], sortOrder: SortOrder): void {
         if (this.sortBy !== sortBy || this.sortOrder !== sortOrder) {
             this.sortBy = sortBy;
             this.sortOrder = _.includes(["asc","desc"], sortOrder) ? sortOrder : "asc";
@@ -81,9 +79,8 @@ export class DataTable implements OnChanges, DoCheck {
     }
 
     private calculateNewActivePage(previousRowsOnPage: number, currentRowsOnPage: number): number {
-        let firstRowOnPage = (this.activePage - 1) * previousRowsOnPage + 1;
-        let newActivePage = Math.ceil(firstRowOnPage / currentRowsOnPage);
-        return newActivePage;
+        const firstRowOnPage = (this.activePage - 1) * previousRowsOnPage + 1;
+        return Math.ceil(firstRowOnPage / currentRowsOnPage);
     }
 
     private recalculatePage() {
@@ -134,12 +131,9 @@ export class DataTable implements OnChanges, DoCheck {
     }
 
     private fillData(): void {
-        this.activePage = this.activePage;
-        this.rowsOnPage = this.rowsOnPage;
-
         let offset = (this.activePage - 1) * this.rowsOnPage;
         let data = this.inputData;
-        var sortBy = this.sortBy;
+        const sortBy = this.sortBy;
         if (typeof sortBy === 'string' || sortBy instanceof String) {
             data = _.orderBy(data, this.caseInsensitiveIteratee(<string>sortBy), [this.sortOrder]);
         } else {
@@ -151,9 +145,9 @@ export class DataTable implements OnChanges, DoCheck {
 
     private caseInsensitiveIteratee(sortBy: string) {
         return (row: any): any => {
-            var value = row;
+            let value = row;
             for (let sortByProperty of sortBy.split('.')) {
-                if(value) {
+                if (value) {
                     value = value[sortByProperty];
                 }
             }
