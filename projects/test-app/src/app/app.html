@@ -1,0 +1,8 @@
+<div class="extstats-table-block">
+    <es-table-controller [table]="favouritesTable" [searchColumn]="'Name'" [placeholder]="'game'">Bob</es-table-controller>
+    <table es-table class="table table-striped extstats-table" [data]="rows" #favouritesTable="esTable" [rowsOnPage]="30"
+           [sortBy]="'Name'" [sortOrder]="'desc'">
+        <thead es-table-head [columns]="columns">Howdy</thead>
+        <tbody es-table-body [columns]="columns">Tony</tbody>
+    </table>
+</div>

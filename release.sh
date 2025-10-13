@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
-npm run build &&
-npm publish
+cd projects/table/
+ng build && npm run pack && npm publish --tag latest

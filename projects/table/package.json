@@ -1,0 +1,16 @@
+{
+  "name": "extstats-datatable",
+  "version": "4.0.0",
+  "scripts": {
+    "pack": "npm pack ../../dist/table"
+  },
+  "peerDependencies": {
+    "@angular/common": "^20.3.0",
+    "@angular/core": "^20.3.0",
+    "lodash-es": "^4.17.21"
+  },
+  "dependencies": {
+    "tslib": "^2.8.1"
+  },
+  "sideEffects": false
+}
