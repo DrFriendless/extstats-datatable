@@ -9,10 +9,10 @@ import {Paginator} from "./Paginator";
     Paginator
   ],
   template: `
-    <div class="extstats-table-controller">
+    <div class="extstats-table-controller" style="display: flex; justify-content: space-between">
       <es-paginator #p [table]="table">
         @if (p.dataLength > p.rowsOnPage) {
-          <div class="extstats-pagination">
+          <div class="extstats-pagination" style="display: inline-block">
             <div class="help">Page:</div>
             @for (page of pages(); track page) {
               <button type="button" class="extstats-page-item" [class.active]="p.activePage === page" (click)="p.setPage(page)">
@@ -22,18 +22,15 @@ import {Paginator} from "./Paginator";
           </div>
         }
         
-        <div class="filler"></div>
-
         @if (!!searchColumn) {
-          <div>
+          <div style="display: inline-block">
             <div class="help">Search:</div>
             <input type="text" [value]="searchValue" [placeholder]="placeholder" (input)="search($event)">
           </div>
-          <div class="filler"></div>
         }
 
         @if (p.dataLength > minRowsOnPage) {
-          <div class="extstats-pagination">
+          <div class="extstats-pagination" style="display: inline-block">
             <div class="help">Rows per page:</div>
             @for (rows of rowsOnPageSet; track rows) {
               <button type="button" class="extstats-page-item" [class.active]="p.rowsOnPage === rows" (click)="p.setRowsOnPage(rows)">
