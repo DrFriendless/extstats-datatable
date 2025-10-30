@@ -1,6 +1,6 @@
 {
   "name": "extstats-datatable",
-  "version": "4.0.4",
+  "version": "4.1.0",
   "scripts": {
     "pack": "npm pack ../../dist/table"
   },
